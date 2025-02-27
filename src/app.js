@@ -40,9 +40,24 @@ app.post("/posts", (req, res) => {
 
 app.post("/posts/:id", (req, res) => {
     const index = searchPost(req.params.id)
-    posts.push(req.body);
     res.status(200).json(posts[index]);
 });
+
+app.put("/posts/:id", (req, res) => {
+    const index = searchPost(req.params.id);
+    posts[index].title = req.body.title;
+    posts[index].description = req.body.description;
+    posts[index].author = req.body.author;
+    res.status(200).json(posts[index]);
+});
+
+app.delete("/posts/:id", (req, res) => {
+    const index = searchPost(req.params.id);
+    posts.splice(index,1);
+    res.status(200).send("Post excluido com sucesso!");
+});
+
+
 
 
 
