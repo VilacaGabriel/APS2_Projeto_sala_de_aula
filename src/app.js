@@ -1,8 +1,9 @@
 import express from "express";
 
 const app = express();
+app.use(express.json())//middleware;
 
-const post = [
+const posts = [
     {
         id: 1,
         title: "Aula 1",
@@ -28,6 +29,23 @@ app.get("/", (req, res) => {
     res.status(200).send("API com Express e Node.js");
 });
 
-app.get("/posts", (res))
+app.get("/posts", (req, res) => {
+    res.status(200).json(posts);
+});
+
+app.post("/posts", (req, res) => {
+    posts.push(req.body);
+    res.status(201).send("Post criado com sucesso!");
+});
+
+app.post("/posts/:id", (req, res) => {
+    const index = searchPost(req.params.id)
+    posts.push(req.body);
+    res.status(200).json(posts[index]);
+});
+
+
+
+
 
 export default app;
