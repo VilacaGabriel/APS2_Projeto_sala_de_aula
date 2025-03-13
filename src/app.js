@@ -1,4 +1,15 @@
 import express from "express";
+import connectToDatabase from "./config/dbConnect.js"
+
+const connection = await connectToDatabase();
+
+connection.on("error", (error) => {
+    console.error("Erro de conexão", error);
+});
+
+connection.once("open", () => {
+    console.log("Conexão com o mongo atlas realizada com sucesso!")
+});
 
 const app = express();
 app.use(express.json());//middleware
@@ -63,3 +74,5 @@ app.delete("/posts/:id", (req, res) => {
 });
 
 export default app;
+
+// mongodb+srv://admin:admin123@cluster0.fzcqw.mongodb.net/api-posts?retryWrites=true&w=majority&appName=Cluster0
