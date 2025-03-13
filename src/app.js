@@ -64,3 +64,5 @@ app.delete("/posts/:id", (req, res) => {
 
 
 export default app;
+
+// mongodb+srv://admin:admin123@cluster0.jxmae.mongodb.net/api-posts?retryWrites=true&w=majority&appName=Cluster0
