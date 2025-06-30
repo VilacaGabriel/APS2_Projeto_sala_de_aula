@@ -48,5 +48,4 @@ npm test
 
 
 ## Desenvolvedores:
-Gabriel Vilaça
-Eduarda Dicalo
+Gabriel Vilaça e Eduarda Dicalo
