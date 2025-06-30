@@ -45,3 +45,8 @@ http://localhost:3000/api-docs
 
 7.Para executar os testes unitários:
 npm test
+
+
+## Desenvolvedores:
+Gabriel Vilaça
+Eduarda Dicalo
